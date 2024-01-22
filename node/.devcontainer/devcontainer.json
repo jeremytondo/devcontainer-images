@@ -14,7 +14,10 @@
     "ghcr.io/devcontainers/features/git:1": {
       "version": "latest",
       "ppa": "false"
-    }
+    },
+    "ghcr.io/devcontainers-contrib/features/firebase-cli:2.0.14": {},
+    "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+    "ghcr.io/devcontainers/features/java:1": {}
   },
   // Configure tool-specific properties.
   "customizations": {
