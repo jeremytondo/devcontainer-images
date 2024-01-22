@@ -6,7 +6,10 @@
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "username": "node",
-      "upgradePackages": "true"
+      "upgradePackages": "true",
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": false,
+      "installOhMyZshConfig": false
     },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "none"
