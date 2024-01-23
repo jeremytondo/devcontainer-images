@@ -24,11 +24,17 @@ RUN \
   && npm cache clean --force > /dev/null 2>&1
 
 # [Optional] Uncomment this section to install additional OS packages.
+# Install lsd. https://github.com/lsd-rs/lsd
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
   && apt-get -y install --no-install-recommends lsd
 
+# Install Starship https://starship.rs/
 RUN curl -O https://starship.rs/install.sh && chmod +x install.sh \ 
   && ./install.sh -y && rm install.sh
+
+# Install and setup dotfiles. https://github.com/jeremytondo/dotfiles
+RUN git clone https://github.com/jeremytondo/dotfiles.git ~/.dotfiles \
+  && cd ~/.dotfiles && ./setup.sh
 
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
