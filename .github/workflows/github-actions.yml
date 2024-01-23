@@ -1,5 +1,14 @@
 name: Node Image Build & Deploy 
-on: [push]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "master"
+    tags:
+      - "v*.*.*"
+    pull_requests:
+      branches:
+        - "master"
 jobs:
   deploy-node:
     name: Deploy Node
