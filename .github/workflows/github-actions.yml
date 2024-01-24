@@ -38,3 +38,4 @@ jobs:
           imageName: ghcr.io/jeremytondo/node
           cacheFrom: ghcr.io/jeremytondo/node
           push: always
+          imageTag: ${{ steps.meta.outputs.tags }}
