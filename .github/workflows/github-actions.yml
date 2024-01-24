@@ -26,6 +26,6 @@ jobs:
       uses: devcontainers/ci@v0.2
       with:
         subFolder: node
-        imageName: ghcr.io/jeremytondo/node
-        cacheFrom: ghcr.io/jeremytondo/node
+        imageName: ghcr.io/jeremytondo/node:${{  github.ref_name }}
+        cacheFrom: ghcr.io/jeremytondo/node:${{  github.ref_name }}
         push: always

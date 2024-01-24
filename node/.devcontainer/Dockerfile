@@ -32,9 +32,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN curl -O https://starship.rs/install.sh && chmod +x install.sh \ 
   && ./install.sh -y && rm install.sh
 
-# Install and setup dotfiles. https://github.com/jeremytondo/dotfiles
-RUN git clone https://github.com/jeremytondo/dotfiles.git ~/.dotfiles \
-  && cd ~/.dotfiles && ./setup.sh
+# Testing
+RUN echo "Hello World!"
 
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
