@@ -86,7 +86,7 @@ install_nvim() {
 
 # Install build essentials. Mainly used for Neovim plugins.
 install_build_essentials() {
-  apt install build-essential
+  sudo apt install build-essential
 }
 
 # Run the main function when the script runs.
