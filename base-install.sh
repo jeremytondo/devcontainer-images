@@ -7,7 +7,7 @@ main() {
   install_nvim
   install_starship
   # install_build_essentials
-  sudo apt-get install build-essential
+  sudo apt-get install build-essential -y
 }
 
 # Update package lists
