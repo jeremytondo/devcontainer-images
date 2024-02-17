@@ -6,7 +6,8 @@ main() {
   install_lsd
   install_nvim
   install_starship
-  install_build_essentials
+  # install_build_essentials
+  sudo apt-get install build-essential
 }
 
 # Update package lists
@@ -34,7 +35,6 @@ install_zsh() {
   fi
 
   sudo apt install zsh -y
-  
   # Sets Zsh as the default shell.
   # chsh -s /usr/bin/zsh
 }
