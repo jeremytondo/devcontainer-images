@@ -6,6 +6,7 @@ main() {
   install_lsd
   install_nvim
   install_starship
+  install_docker
   
   # install_build_essentials
   sudo apt-get install build-essential -y
@@ -83,6 +84,39 @@ install_nvim() {
   sudo tar -C /opt -xzf nvim-linux64.tar.gz
   rm nvim-linux64.tar.gz
 
+}
+
+install_docker() {
+  if $(is_installed docker); then
+    echo "Docker is already installed"
+    return 0
+  fi
+
+  echo "Installing Docker..."
+
+  # Uninstall conflicting packages.
+  for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
+  # Add Docker's official GPG key.
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+  # Add the Docker repository to apt sources.
+  echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+
+  # Install the Docker packages
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+  # Allow user to administer docker
+  sudo groupadd docker  
+  sudo usermod -aG docker $USER
 }
 
 # Run the main function when the script runs.
