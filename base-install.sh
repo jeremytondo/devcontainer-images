@@ -35,7 +35,7 @@ install_zsh() {
   sudo apt install zsh -y
   
   # Sets Zsh as the default shell.
-  chsh -s $(which zsh)
+  sudo chsh -s $(which zsh)
 }
 
 # Install LSD (LSDeluxe) ls replacement.
