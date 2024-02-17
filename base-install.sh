@@ -6,6 +6,7 @@ main() {
   install_lsd
   install_nvim
   install_starship
+  
   # install_build_essentials
   sudo apt-get install build-essential -y
 }
@@ -82,11 +83,6 @@ install_nvim() {
   sudo tar -C /opt -xzf nvim-linux64.tar.gz
   rm nvim-linux64.tar.gz
 
-}
-
-# Install build essentials. Mainly used for Neovim plugins.
-install_build_essentials() {
-  sudo apt install build-essential
 }
 
 # Run the main function when the script runs.
